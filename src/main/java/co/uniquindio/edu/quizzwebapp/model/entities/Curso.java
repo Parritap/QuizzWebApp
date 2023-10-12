@@ -1,10 +1,7 @@
 package co.uniquindio.edu.quizzwebapp.model.entities;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import java.io.Serializable;
@@ -24,6 +21,7 @@ public class Curso implements Serializable {
 
     @UniqueElements
     private String nombre;
+    @Column (name = "syllabus" , columnDefinition = "BLOB")
     private byte[] syllabus;
 
     @OneToMany (mappedBy = "curso")

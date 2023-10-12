@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,7 +17,7 @@ import java.io.Serializable;
 public class Grupo implements Serializable {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @UniqueElements
     private String nombre;
@@ -24,9 +25,8 @@ public class Grupo implements Serializable {
     private Docente docente;
     @ManyToOne
     private Curso curso;
-
-
-
+    @ManyToMany  ( mappedBy = )
+    private List<Estudiante> estudiantes;
 
 
 }
