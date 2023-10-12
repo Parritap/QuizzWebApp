@@ -1,11 +1,11 @@
 package co.uniquindio.edu.quizzwebapp.model.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
@@ -14,9 +14,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode (callSuper = true)
+@SuperBuilder
 public class Estudiante extends Usuario implements Serializable {
 
-    @Id
-    private Integer id;
-    private
+    private String nombre;
 }
