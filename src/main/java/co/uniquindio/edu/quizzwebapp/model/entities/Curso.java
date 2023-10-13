@@ -17,6 +17,7 @@ public class Curso implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @Column (name = "id_curso")
     private Integer id;
 
     @UniqueElements

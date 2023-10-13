@@ -1,10 +1,7 @@
 package co.uniquindio.edu.quizzwebapp.model.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,9 +20,13 @@ import java.io.Serializable;
 public abstract class Usuario implements Serializable {
     @Id
     @EqualsAndHashCode.Include
+    @Column(name = "id_usuario")
     private Integer id;
+
     @UniqueElements
     private String correo;
+
     private String password;
+
     private boolean esEstudiante;
 }

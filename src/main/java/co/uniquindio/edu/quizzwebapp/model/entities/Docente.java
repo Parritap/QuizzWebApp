@@ -21,4 +21,7 @@ public class Docente extends Usuario implements Serializable {
     private String nombre;
     @OneToMany (mappedBy = "docente")
     private List<Grupo> grupos;
+
+    @OneToMany
+    private List <Banco> bancos;
 }
