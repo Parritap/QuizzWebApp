@@ -1,6 +1,7 @@
 package co.uniquindio.edu.quizzwebapp.model.entities;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,11 +15,13 @@ import java.io.Serializable;
 @SuperBuilder
 @Getter
 @Setter
+@EqualsAndHashCode (onlyExplicitlyIncluded = true)
 public class Tema implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_tema")
+    @EqualsAndHashCode.Include
     private Integer id;
 
     @Column (columnDefinition = "varchar (500)")

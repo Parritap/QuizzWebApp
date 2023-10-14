@@ -18,6 +18,7 @@ public class Banco  implements Serializable {
     @Id
     @GeneratedValue ( strategy =  GenerationType.IDENTITY)
     @Column (name = "id_banco")
+    @EqualsAndHashCode.Include
     private Integer id;
 
     //Como no hay una relación bidireccional de ownership,

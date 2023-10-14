@@ -19,6 +19,7 @@ public class Grupo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_grupo")
+    @EqualsAndHashCode.Include
     private Integer id;
 
     @UniqueElements

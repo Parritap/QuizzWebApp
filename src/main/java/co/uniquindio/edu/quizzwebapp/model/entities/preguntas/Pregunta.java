@@ -1,11 +1,12 @@
-package co.uniquindio.edu.quizzwebapp.model.entities;
+package co.uniquindio.edu.quizzwebapp.model.entities.preguntas;
 
 
+import co.uniquindio.edu.quizzwebapp.model.entities.Banco;
+import co.uniquindio.edu.quizzwebapp.model.entities.Docente;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @SuperBuilder
+@NotNull
 @Inheritance (strategy = InheritanceType.JOINED)
 
 public abstract class Pregunta implements Serializable {
@@ -22,13 +24,14 @@ public abstract class Pregunta implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_pregunta")
+    @EqualsAndHashCode.Include
     private Integer id;
 
     @OneToOne
     private Banco banco;
 
     //TODO Si descomendo la siguiente linea, Hibernate se queja en consola.
-    //@Column (table = "pregunta", name ="es_publica", columnDefinition = "BIT (1) DEFAULT = 0")
+    @Column (name ="es_publica", columnDefinition = "BIT (1) DEFAULT 0 NOT NULL")
     private Boolean esPublica;
 
     @OneToOne
@@ -40,4 +43,7 @@ public abstract class Pregunta implements Serializable {
     private Integer tiempoMax;
 
     private Integer porcentaje;
+
+    @Column (columnDefinition = "VARCHAR(500) NOT NULL")
+    private String enunciado;
 }
