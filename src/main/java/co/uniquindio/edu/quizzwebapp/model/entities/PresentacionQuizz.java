@@ -21,17 +21,10 @@ import java.io.Serializable;
 @EqualsAndHashCode (onlyExplicitlyIncluded = true)
 public class PresentacionQuizz  implements Serializable {
 
-    @Id
+    @EmbeddedId
     @EqualsAndHashCode.Include
-    private Integer id;
+    private PresentacionQuizzID id;
 
-    @OneToOne
-    @JoinColumn (name = "id_usuario")
-    private Estudiante estudiante;
-
-    @OneToOne
-    @JoinColumn (name = "id_quizz")
-    private Quizz quizz;
 
     @Max(100)
     private int calificacion;

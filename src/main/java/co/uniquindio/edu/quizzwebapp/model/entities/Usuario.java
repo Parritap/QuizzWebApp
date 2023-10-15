@@ -2,6 +2,7 @@ package co.uniquindio.edu.quizzwebapp.model.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,9 +24,11 @@ public abstract class Usuario implements Serializable {
     @Column(name = "id_usuario")
     private Integer id;
 
+    @NotNull
     @UniqueElements
     private String correo;
 
+    @NotNull
     private String password;
 
     private boolean esEstudiante;

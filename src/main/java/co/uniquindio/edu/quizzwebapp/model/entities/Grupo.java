@@ -26,9 +26,11 @@ public class Grupo implements Serializable {
     private String nombre;
 
     @ManyToOne
+    @JoinColumn (name = "id_docente")
     private Docente docente;
 
     @ManyToOne
+    @JoinColumn (name = "id_curso")
     private Curso curso;
 
     @ManyToMany

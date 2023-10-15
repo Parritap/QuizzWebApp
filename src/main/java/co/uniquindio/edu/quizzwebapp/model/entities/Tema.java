@@ -1,6 +1,7 @@
 package co.uniquindio.edu.quizzwebapp.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,12 @@ public class Tema implements Serializable {
     @EqualsAndHashCode.Include
     private Integer id;
 
+    @NotNull
     @Column (columnDefinition = "varchar (500)")
-    private String conteido;
+    private String descripcion;
+
+    @ManyToOne
+    @JoinColumn (name = "id_curso")
+    private Curso curso;
+
 }
