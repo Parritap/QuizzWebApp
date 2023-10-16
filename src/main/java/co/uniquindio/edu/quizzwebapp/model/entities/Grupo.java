@@ -37,4 +37,9 @@ public class Grupo implements Serializable {
     @JoinTable(name = "grupo_Estudiante", joinColumns = @JoinColumn(name = "grupo_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 
+
+    @ManyToMany
+    @JoinTable (name = "horario", joinColumns = @JoinColumn (name = "id_grupo"), inverseJoinColumns = @JoinColumn (name = "id_clase"))
+    private List<Clase> clases;
+
 }
