@@ -1,10 +1,7 @@
 package co.uniquindio.edu.quizzwebapp.model.entities;
 
-import co.uniquindio.edu.quizzwebapp.model.entities.Estudiante;
-import co.uniquindio.edu.quizzwebapp.model.entities.Quizz;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
