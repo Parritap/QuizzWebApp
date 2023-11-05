@@ -5,12 +5,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.io.Serializable;
-import java.sql.Time;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,13 +17,10 @@ import java.util.List;
 public class Clase implements Serializable {
 
     @Id
-    @Column (name = "id_clase")
     private Integer id;
-
-
     private LocalTime horaInicio;
     private LocalTime horaFin;
-
+    private char dia;
     @ManyToMany (mappedBy = "clases")
     private List<Grupo> grupos;
 
