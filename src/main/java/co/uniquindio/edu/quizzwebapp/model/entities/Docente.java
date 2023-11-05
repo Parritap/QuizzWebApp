@@ -1,10 +1,7 @@
 package co.uniquindio.edu.quizzwebapp.model.entities;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
@@ -16,12 +13,14 @@ import java.util.List;
 @SuperBuilder
 @EqualsAndHashCode (callSuper = true)
 @NoArgsConstructor
+@ToString()
 public class Docente extends Usuario implements Serializable {
 
     private String nombre;
+    @ToString.Exclude
     @OneToMany (mappedBy = "docente")
     private List<Grupo> grupos;
-
+    @ToString.Exclude
     @OneToMany
     private List <Banco> bancos;
 }

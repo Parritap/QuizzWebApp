@@ -17,13 +17,14 @@ import java.io.Serializable;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
 public abstract class Usuario implements Serializable {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    @Column(name = "id_usuario")
     private Integer id;
 
     @NotNull
-    @UniqueElements
+    @Column(unique = true)
     private String correo;
 
     @NotNull
