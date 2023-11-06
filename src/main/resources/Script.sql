@@ -586,9 +586,7 @@ VALUES
 
 
 INSERT INTO pregunta(es_publica, docente_id, tiempo_max, enunciado)
-VALUES
-
-       (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 + 2?'),
+VALUES (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 + 2?'),
        (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 * 2?'),
        (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 / 2?'),
        (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 - 2?'),
@@ -601,6 +599,7 @@ VALUES
        (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 + 2 % 2?'),
        (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 * 2 / 2?'),
        (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 * 2 - 2?'),
+
 
        (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 * 2 ^ 2?'),
        (true, 10, 60, '¿Cuál es el resultado de la siguiente operación: 2 * 2 % 2?'),
@@ -681,16 +680,16 @@ VALUES
        (true, 42, 60, '¿Cuál es la capital de Brasil?'),
        (true, 44, 60, '¿Cuál es el lenguaje de programación más usado?'),
        (true, 44, 60, '¿Cuál es el lenguaje de programación más usado en la web?'),
-       (true, 44, 60, 'Mencione frameworks de JavaScript'),
-       (true, 44, 60, 'Mencione frameworks de PHP'),
-       (true, 44, 60, 'Mencione frameworks de Python'),
-       (true, 44, 60, 'Mencione frameworks de Java'),
-       (true, 44, 60, 'Mencione frameworks de C#'),
-       (true, 44, 60, 'Mencione frameworks de C++'),
-       (true, 44, 60, 'Mencione frameworks de C'),
-       (true, 44, 60, 'Mencione frameworks de Ruby'),
-       (true, 44, 60, 'Mencione frameworks de Perl'),
-       (true, 44, 60, 'Mencione frameworks de Go'),
+       (true, 44, 60, 'Angular es un framework de JavaScript'),
+       (true, 44, 60, 'Laravel es un framework de PHP'),
+       (true, 44, 60, 'Spring es un framework de Python'),
+       (true, 44, 60, 'Spring es un framework de Java'),
+       (true, 44, 60, 'DJango es un framework de C#'),
+       (true, 44, 60, 'GO es un framework de C++'),
+       (true, 44, 60, 'Alpha es un framework de C'),
+       (true, 44, 60, 'rubyOnRails es un framework de Ruby'),
+       (true, 44, 60, 'Perl es un framework de Perl'),
+       (true, 44, 60, 'Goland en un framework de Go'),
        (true, 46, 60, '¿Cuál es la filosofía de la vida?'),
        (true, 46, 60, '¿Cuál es la filosofía de la muerte?'),
        (true, 46, 60, '¿Cuál es la filosofía de la existencia?'),
@@ -715,103 +714,538 @@ VALUES
        (true, 52, 60, '¿Cuál es la obra de Sófocles?'),
        (true, 52, 60, '¿Cuál es la obra de Esquilo?');
 
-INSERT INTO seleccion_multiple(cantidad_respuestas, id)
-VALUES
-    (1, 1),
-    (1, 2),
-    (1, 3),
-    (1, 4),
-    (1, 5),
-    (1, 6),
-    (1, 7),
-    (1, 8),
-    (1, 9),
-    (1, 10),
-    (1, 11),
-    (1, 12);
-
-
+INSERT INTO seleccion_multiple(id)
+VALUES (1),
+       (2),
+       (3),
+       (4),
+       (5),
+       (6),
+       (7),
+       (8),
+       (9),
+       (10),
+       (11),
+       (12);
 
 INSERT INTO respuesta(preg_seleccion_multiple_id, contenido, es_correcta)
-    VALUES
-           (1, '5', FALSE),
-           (1, '4', TRUE),
-           (1, '3', FALSE),
-           (1, '2', FALSE),
-           (1, '1', FALSE),
+VALUES (1, '5', FALSE),
+       (1, '4', TRUE),
+       (1, '3', FALSE),
+       (1, '2', FALSE),
+       (1, '1', FALSE),
 
-           (2, '5', FALSE),
-           (2, '4', TRUE),
-           (2, '3', FALSE),
-           (2, '2', FALSE),
-           (2, '1', FALSE),
+       (2, '5', FALSE),
+       (2, '4', TRUE),
+       (2, '3', FALSE),
+       (2, '2', FALSE),
+       (2, '1', FALSE),
 
-           (3, '5', FALSE),
-           (3, '4', FALSE),
-           (3, '3', FALSE),
-           (3, '2', FALSE),
-           (3, '1', TRUE),
+       (3, '5', FALSE),
+       (3, '4', FALSE),
+       (3, '3', FALSE),
+       (3, '2', FALSE),
+       (3, '1', TRUE),
 
-           (4, '5', FALSE),
-           (4, '4', FALSE),
-           (4, '3', FALSE),
-           (4, '2', FALSE),
-           (4, '0', TRUE),
+       (4, '5', FALSE),
+       (4, '4', FALSE),
+       (4, '3', FALSE),
+       (4, '2', FALSE),
+       (4, '0', TRUE),
 
-           (5, '5', FALSE),
-           (5, '4', TRUE),
-           (5, '3', FALSE),
-           (5, '2', FALSE),
-           (5, '1', FALSE),
+       (5, '5', FALSE),
+       (5, '4', TRUE),
+       (5, '3', FALSE),
+       (5, '2', FALSE),
+       (5, '1', FALSE),
 
-           (6, '5', FALSE),
-           (6, '4', FALSE),
-           (6, '3', FALSE),
-           (6, '2', TRUE),
-           (6, '1', FALSE),
+       (6, '5', FALSE),
+       (6, '4', FALSE),
+       (6, '3', FALSE),
+       (6, '2', TRUE),
+       (6, '1', FALSE),
 
-           (7, '5', FALSE),
-           (7, '4', FALSE),
-           (7, '3', FALSE),
-           (7, '2', FALSE),
-           (7, '0', TRUE),
+       (7, '5', FALSE),
+       (7, '4', FALSE),
+       (7, '3', FALSE),
+       (7, '2', FALSE),
+       (7, '0', TRUE),
 
-           (8, '5', FALSE),
-           (8, '4', FALSE),
-           (8, '3', FALSE),
-           (8, '6', TRUE),
-           (8, '1', FALSE),
+       (8, '5', FALSE),
+       (8, '4', FALSE),
+       (8, '3', FALSE),
+       (8, '6', TRUE),
+       (8, '1', FALSE),
 
-           (9, '5', FALSE),
-           (9, '4', FALSE),
-           (9, '3', TRUE),
-           (9, '2', FALSE),
-           (9, '1', FALSE),
+       (9, '5', FALSE),
+       (9, '4', FALSE),
+       (9, '3', TRUE),
+       (9, '2', FALSE),
+       (9, '1', FALSE),
 
-           (10, '5', FALSE),
-           (10, '4', FALSE),
-           (10, '3', FALSE),
-           (10, '8', FALSE),
-           (10, '2', TRUE),
+       (10, '5', FALSE),
+       (10, '4', FALSE),
+       (10, '3', FALSE),
+       (10, '8', FALSE),
+       (10, '2', TRUE),
 
-           (11, '5', FALSE),
-           (11, '4', FALSE),
-           (11, '3', FALSE),
-           (11, '2', TRUE),
-           (11, '1', FALSE),
+       (11, '5', FALSE),
+       (11, '4', FALSE),
+       (11, '3', FALSE),
+       (11, '2', TRUE),
+       (11, '1', FALSE),
 
-           (12, '5', FALSE),
-           (12, '4', FALSE),
-           (12, '3', FALSE),
-           (12, '2', TRUE);
-
+       (12, '5', FALSE),
+       (12, '4', FALSE),
+       (12, '3', FALSE),
+       (12, '2', TRUE);
 
 
 
+INSERT INTO pregunta_cerrada(id, respuesta)
+VALUES (93, TRUE),
+       (94, TRUE),
+       (95, FALSE),
+       (96, TRUE),
+       (97, FALSE),
+       (98, FALSE),
+       (99, TRUE),
+       (100, TRUE),
+       (101, FALSE),
+       (102, FALSE);
+
+INSERT INTO banco (docente_id, id_tema)
+VALUES (10, 74),
+       (12, 70),
+       (16, 26),
+       (18, 10),
+       (20, 42),
+       (22, 4),
+       (28, 47),
+       (36, 8);
+
+
+INSERT INTO quizz(cantidad_preguntas, tema_id, porcentaje_umbral, tiempo,
+                  fecha_yhora_inicio, fechayhora_finalizacion, categoria,
+                  descripcion, nombre)
+VALUES (10, 3, 3, 60, '2020-10-10 10:10:10', '2020-10-10 10:10:10', 'Ciencias',
+        'Este es el examen final', 'Examen final'),
+       (30, 70, 4, 110, '2020-10-10 12:00:00', '2022-10-10 11:10:00', 'Matemáticas',
+        'Este es el segundo examen', 'Examen 2'),
+       (20, 5, 2, 90, '2021-05-15 08:00:00', '2021-05-15 09:30:00', 'Historia',
+        'Examen de historia', 'Historia 1'),
+       (15, 8, 3, 75, '2021-07-20 13:45:00', '2021-07-20 14:45:00', 'Geografía',
+        'Examen de geografía', 'Geografía 1'),
+       (25, 10, 4, 102, '2021-09-05 11:30:00', '2021-09-05 13:20:00', 'Lengua',
+        'Examen de lengua', 'Lengua 1'),
+       (12, 4, 2, 50, '2021-11-10 09:00:00', '2021-11-10 09:30:00', 'Arte',
+        'Examen de arte', 'Arte 1'),
+       (18, 6, 3, 80, '2022-01-15 14:00:00', '2022-01-15 15:30:00', 'Música',
+        'Examen de música', 'Música 1'),
+       (22, 9, 4, 95, '2022-03-20 10:45:00', '2022-03-20 12:10:00', 'Física',
+        'Examen de física', 'Física 1'),
+       (8, 1, 2, 40, '2022-05-25 12:00:00', '2022-05-25 12:30:00', 'Química',
+        'Examen de química', 'Química 1'),
+       (17, 7, 3, 70, '2022-07-30 08:30:00', '2022-07-30 09:45:00', 'Biología',
+        'Examen de biología', 'Biología 1'),
+       (35, 2, 4, 50, '2022-09-05 09:15:00', '2022-09-05 12:45:00', 'Informática',
+        'Examen de informática', 'Informática 1'),
+       (13, 4, 2, 55, '2023-01-10 11:20:00', '2023-01-10 11:55:00', 'Deportes',
+        'Examen de deportes', 'Deportes 1'),
+       (28, 8, 3, 85, '2023-03-15 10:00:00', '2023-03-15 11:30:00', 'Economía',
+        'Examen de economía', 'Economía 1'),
+       (19, 3, 3, 75, '2023-06-20 14:45:00', '2023-06-20 15:45:00', 'Política',
+        'Examen de política', 'Política 1'),
+       (24, 6, 4, 100, '2023-09-25 09:30:00', '2023-09-25 11:00:00', 'Sociología',
+        'Examen de sociología', 'Sociología 1'),
+       (27, 4, 3, 90, '2024-01-10 08:00:00', '2024-01-10 09:30:00', 'Arte',
+        'Examen de arte avanzado', 'Arte 2'),
+       (14, 7, 2, 60, '2024-04-15 12:30:00', '2024-04-15 13:30:00', 'Biología',
+        'Examen de biología avanzado', 'Biología 2'),
+       (31, 2, 4, 90, '2024-07-20 10:00:00', '2024-07-20 12:30:00', 'Informática',
+        'Examen de informática avanzado', 'Informática 2'),
+       (23, 9, 3, 100, '2024-10-25 09:45:00', '2024-10-25 11:15:00', 'Física',
+        'Examen de física avanzado', 'Física 2'),
+       (16, 5, 2, 80, '2025-01-30 14:15:00', '2025-01-30 15:30:00', 'Historia',
+        'Examen de historia avanzado', 'Historia 2'),
+       (12, 1, 2, 50, '2025-04-05 11:00:00', '2025-04-05 11:30:00', 'Química',
+        'Examen de química avanzado', 'Química 2'),
+       (20, 6, 3, 70, '2025-07-10 08:30:00', '2025-07-10 09:45:00', 'Música',
+        'Examen de música avanzado', 'Música 2'),
+       (35, 3, 4, 60, '2025-10-15 09:00:00', '2025-10-15 12:00:00', 'Ciencias',
+        'Examen de ciencias avanzado', 'Ciencias 2'),
+       (19, 8, 3, 75, '2026-01-20 13:30:00', '2026-01-20 14:45:00', 'Lengua',
+        'Examen de lengua avanzado', 'Lengua 2'),
+       (28, 7, 3, 90, '2026-04-25 11:45:00', '2026-04-25 13:15:00', 'Biología',
+        'Examen de biología intermedio', 'Biología 3'),
+       (21, 2, 3, 100, '2026-07-30 08:00:00', '2026-07-30 09:30:00', 'Informática',
+        'Examen de informática intermedio', 'Informática 3'),
+       (17, 9, 2, 70, '2026-10-05 12:15:00', '2026-10-05 13:00:00', 'Física',
+        'Examen de física intermedio', 'Física 3'),
+       (25, 4, 4, 40, '2027-01-10 10:30:00', '2027-01-10 12:00:00', 'Arte',
+        'Examen de arte intermedio', 'Arte 3'),
+       (30, 5, 3, 30, '2027-04-15 09:45:00', '2027-04-15 11:15:00', 'Historia',
+        'Examen de historia intermedio', 'Historia 3'),
+       (15, 1, 2, 60, '2027-07-20 13:00:00', '2027-07-20 14:00:00', 'Química',
+        'Examen de química intermedio', 'Química 3'),
+       (22, 6, 3, 85, '2028-01-25 10:00:00', '2028-01-25 11:30:00', 'Música',
+        'Examen avanzado de música', 'Música 3'),
+       (18, 3, 2, 70, '2028-04-30 12:15:00', '2028-04-30 13:00:00', 'Ciencias',
+        'Examen avanzado de ciencias', 'Ciencias 3'),
+       (28, 8, 3, 95, '2028-07-05 09:30:00', '2028-07-05 11:00:00', 'Lengua',
+        'Examen avanzado de lengua', 'Lengua 3'),
+       (24, 5, 4, 70, '2028-10-10 08:45:00', '2028-10-10 10:15:00', 'Historia',
+        'Examen avanzado de historia', 'Historia 4'),
+       (16, 1, 2, 65, '2029-01-15 14:30:00', '2029-01-15 15:45:00', 'Química',
+        'Examen avanzado de química', 'Química 4'),
+       (32, 7, 4, 101, '2029-04-20 11:00:00', '2029-04-20 13:30:00', 'Biología',
+        'Examen avanzado de biología', 'Biología 4'),
+       (26, 4, 3, 100, '2029-07-25 09:15:00', '2029-07-25 10:45:00', 'Arte',
+        'Examen avanzado de arte', 'Arte 4'),
+       (14, 9, 2, 55, '2029-10-30 12:30:00', '2029-10-30 13:15:00', 'Física',
+        'Examen avanzado de física', 'Física 4'),
+       (20, 3, 3, 75, '2030-01-05 13:00:00', '2030-01-05 14:15:00', 'Ciencias',
+        'Examen intermedio de ciencias', 'Ciencias 4'),
+       (15, 8, 2, 60, '2030-04-10 11:45:00', '2030-04-10 12:30:00', 'Lengua',
+        'Examen intermedio de lengua', 'Lengua 4'),
+       (30, 6, 4, 101, '2030-07-15 09:00:00', '2030-07-15 11:30:00', 'Música',
+        'Examen intermedio de música', 'Música 4'),
+       (17, 2, 3, 70, '2030-10-20 12:15:00', '2030-10-20 13:00:00', 'Informática',
+        'Examen intermedio de informática', 'Informática 4'),
+       (23, 7, 3, 85, '2031-01-25 10:30:00', '2031-01-25 12:00:00', 'Biología',
+        'Examen intermedio de biología', 'Biología 5'),
+       (25, 4, 4, 95, '2031-04-30 09:45:00', '2031-04-30 11:15:00', 'Arte',
+        'Examen intermedio de arte', 'Arte 5'),
+       (12, 1, 2, 50, '2031-07-05 12:00:00', '2031-07-05 12:30:00', 'Química',
+        'Examen intermedio de química', 'Química 5'),
+       (25, 6, 3, 90, '2032-01-10 08:00:00', '2032-01-10 09:30:00', 'Geología',
+        'Examen de geología avanzado', 'Geología 1'),
+       (18, 3, 2, 70, '2032-04-15 12:30:00', '2032-04-15 13:30:00', 'Literatura',
+        'Examen de literatura avanzado', 'Literatura 1'),
+       (30, 2, 4, 100, '2032-07-20 10:00:00', '2032-07-20 12:30:00', 'Psicología',
+        'Examen de psicología avanzado', 'Psicología 1'),
+       (23, 9, 3, 100, '2032-10-25 09:45:00', '2032-10-25 11:15:00', 'Sociología',
+        'Examen de sociología avanzado', 'Sociología 1'),
+       (20, 5, 2, 80, '2033-01-30 14:15:00', '2033-01-30 15:30:00', 'Arqueología',
+        'Examen de arqueología avanzado', 'Arqueología 1'),
+       (14, 1, 2, 65, '2033-04-05 11:00:00', '2033-04-05 11:30:00', 'Antropología',
+        'Examen de antropología avanzado', 'Antropología 1'),
+       (35, 7, 4, 13, '2033-07-10 08:30:00', '2033-07-10 09:45:00', 'Filosofía',
+        'Examen de filosofía avanzado', 'Filosofía 1'),
+       (28, 8, 3, 95, '2033-10-15 09:00:00', '2033-10-15 11:00:00', 'Historia del Arte',
+        'Examen de historia del arte avanzado', 'Historia del Arte 1'),
+       (19, 3, 3, 75, '2034-01-20 13:30:00', '2034-01-20 14:45:00', 'Cine',
+        'Examen de cine avanzado', 'Cine 1'),
+       (32, 6, 4, 72, '2034-04-25 11:45:00', '2034-04-25 13:15:00', 'Diseño',
+        'Examen de diseño avanzado', 'Diseño 1'),
+       (17, 2, 3, 70, '2034-07-30 08:00:00', '2034-07-30 09:30:00', 'Economía',
+        'Examen de economía avanzado', 'Economía 2'),
+       (24, 7, 3, 85, '2034-10-05 12:15:00', '2034-10-05 13:00:00', 'Gastronomía',
+        'Examen de gastronomía avanzado', 'Gastronomía 1'),
+       (26, 4, 3, 100, '2035-01-10 10:30:00', '2035-01-10 12:00:00', 'Música',
+        'Examen intermedio de música', 'Música 5'),
+       (15, 1, 2, 60, '2035-04-15 09:45:00', '2035-04-15 11:15:00', 'Teatro',
+        'Examen intermedio de teatro', 'Teatro 1'),
+       (12, 9, 2, 50, '2035-07-20 13:00:00', '2035-07-20 14:00:00', 'Pintura',
+        'Examen intermedio de pintura', 'Pintura 1'),
+       (22, 6, 3, 85, '2036-01-25 10:00:00', '2036-01-25 11:30:00', 'Cibernética',
+        'Examen avanzado de cibernética', 'Cibernética 1'),
+       (18, 3, 2, 70, '2036-04-30 12:15:00', '2036-04-30 13:00:00', 'Robótica',
+        'Examen avanzado de robótica', 'Robótica 1'),
+       (30, 2, 4, 70, '2036-07-05 09:30:00', '2036-07-05 11:00:00', 'Inteligencia Artificial',
+        'Examen avanzado de inteligencia artificial', 'Inteligencia Artificial 1'),
+       (23, 9, 3, 100, '2036-10-10 08:45:00', '2036-10-10 10:15:00', 'Realidad Virtual',
+        'Examen avanzado de realidad virtual', 'Realidad Virtual 1'),
+       (20, 5, 2, 80, '2037-01-15 14:30:00', '2037-01-15 15:45:00', 'Nanotecnología',
+        'Examen avanzado de nanotecnología', 'Nanotecnología 1'),
+       (14, 1, 2, 65, '2037-04-20 11:00:00', '2037-04-20 11:30:00', 'Biomecánica',
+        'Examen avanzado de biomecánica', 'Biomecánica 1'),
+       (35, 7, 4, 42, '2037-07-25 08:30:00', '2037-07-25 09:45:00', 'Big Data',
+        'Examen avanzado de big data', 'Big Data 1'),
+       (28, 8, 3, 95, '2037-10-30 09:00:00', '2037-10-30 11:00:00', 'Blockchain',
+        'Examen avanzado de blockchain', 'Blockchain 1'),
+       (19, 3, 3, 75, '2038-01-05 13:30:00', '2038-01-05 14:45:00', 'Machine Learning',
+        'Examen avanzado de machine learning', 'Machine Learning 1'),
+       (32, 6, 4, 22, '2038-04-10 11:45:00', '2038-04-10 13:15:00', 'Deep Learning',
+        'Examen avanzado de deep learning', 'Deep Learning 1'),
+       (17, 2, 3, 70, '2038-07-15 08:00:00', '2038-07-15 09:30:00', 'Redes Neuronales',
+        'Examen avanzado de redes neuronales', 'Redes Neuronales 1'),
+       (24, 7, 3, 85, '2038-10-20 12:15:00', '2038-10-20 13:00:00', 'Computación Cuántica',
+        'Examen avanzado de computación cuántica', 'Computación Cuántica 1'),
+       (26, 4, 3, 100, '2039-01-25 10:30:00', '2039-01-25 12:00:00', 'Fusiones y Adquisiciones',
+        'Examen de fusiones y adquisiciones', 'Fusiones y Adquisiciones 1'),
+       (15, 1, 2, 60, '2039-04-30 09:45:00', '2039-04-30 11:15:00', 'Gestión de Proyectos',
+        'Examen de gestión de proyectos', 'Gestión de Proyectos 1'),
+       (12, 9, 2, 50, '2039-07-05 13:00:00', '2039-07-05 14:00:00', 'Estrategias de Marketing',
+        'Examen de estrategias de marketing', 'Estrategias de Marketing 1'),
+       (28, 6, 3, 100, '2040-01-10 08:00:00', '2040-01-10 09:30:00', 'Astrofísica',
+        'Examen avanzado de astrofísica', 'Astrofísica 1'),
+       (17, 3, 2, 70, '2040-04-15 12:30:00', '2040-04-15 13:30:00', 'Física Cuántica',
+        'Examen avanzado de física cuántica', 'Física Cuántica 1'),
+       (32, 2, 4, 12, '2040-07-20 10:00:00', '2040-07-20 12:30:00', 'Cosmología',
+        'Examen avanzado de cosmología', 'Cosmología 1'),
+       (23, 9, 3, 100, '2040-10-25 09:45:00', '2040-10-25 11:15:00', 'Mecánica Cuántica',
+        'Examen avanzado de mecánica cuántica', 'Mecánica Cuántica 1'),
+       (20, 5, 2, 80, '2041-01-30 14:15:00', '2041-01-30 15:30:00', 'Biología Molecular',
+        'Examen avanzado de biología molecular', 'Biología Molecular 1'),
+       (14, 1, 2, 65, '2041-04-05 11:00:00', '2041-04-05 11:30:00', 'Neurociencia',
+        'Examen avanzado de neurociencia', 'Neurociencia 1'),
+       (35, 7, 4, 15, '2041-07-10 08:30:00', '2041-07-10 09:45:00', 'Ingeniería Genética',
+        'Examen avanzado de ingeniería genética', 'Ingeniería Genética 1'),
+       (28, 8, 3, 95, '2041-10-15 09:00:00', '2041-10-15 11:00:00', 'Geología Planetaria',
+        'Examen avanzado de geología planetaria', 'Geología Planetaria 1'),
+       (19, 3, 3, 75, '2042-01-20 13:30:00', '2042-01-20 14:45:00', 'Química Orgánica',
+        'Examen avanzado de química orgánica', 'Química Orgánica 1'),
+       (32, 6, 4, 104, '2042-04-25 11:45:00', '2042-04-25 13:15:00', 'Geometría Fractal',
+        'Examen avanzado de geometría fractal', 'Geometría Fractal 1'),
+       (17, 2, 3, 70, '2042-07-30 08:00:00', '2042-07-30 09:30:00', 'Economía Cuántica',
+        'Examen avanzado de economía cuántica', 'Economía Cuántica 1'),
+       (24, 7, 3, 85, '2042-10-05 12:15:00', '2042-10-05 13:00:00', 'Lingüística Computacional',
+        'Examen avanzado de lingüística computacional', 'Lingüística Computacional 1'),
+       (26, 4, 3, 100, '2043-01-10 10:30:00', '2043-01-10 12:00:00', 'Inteligencia Colectiva',
+        'Examen de inteligencia colectiva', 'Inteligencia Colectiva 1'),
+       (15, 1, 2, 60, '2043-04-15 09:45:00', '2043-04-15 11:15:00', 'Bioinformática',
+        'Examen de bioinformática', 'Bioinformática 1'),
+       (12, 9, 2, 50, '2043-07-20 13:00:00', '2043-07-20 14:00:00', 'Física Teórica',
+        'Examen de física teórica', 'Física Teórica 1'),
+       (30, 6, 3, 90, '2044-01-10 08:00:00', '2044-01-10 09:30:00', 'Arquitectura',
+        'Examen avanzado de arquitectura', 'Arquitectura 1'),
+       (25, 3, 2, 75, '2044-04-15 12:30:00', '2044-04-15 13:30:00', 'Urbanismo',
+        'Examen avanzado de urbanismo', 'Urbanismo 1'),
+       (32, 2, 4, 10, '2044-07-20 10:00:00', '2044-07-20 12:30:00', 'Diseño Industrial',
+        'Examen avanzado de diseño industrial', 'Diseño Industrial 1'),
+       (23, 9, 3, 100, '2044-10-25 09:45:00', '2044-10-25 11:15:00', 'Ingeniería Civil',
+        'Examen avanzado de ingeniería civil', 'Ingeniería Civil 1'),
+       (20, 5, 2, 80, '2045-01-30 14:15:00', '2045-01-30 15:30:00', 'Paisajismo',
+        'Examen avanzado de paisajismo', 'Paisajismo 1'),
+       (14, 1, 2, 65, '2045-04-05 11:00:00', '2045-04-05 11:30:00', 'Restauración Arquitectónica',
+        'Examen avanzado de restauración arquitectónica', 'Restauración Arquitectónica 1'),
+       (35, 7, 4, 103, '2045-07-10 08:30:00', '2045-07-10 09:45:00', 'Gestión de Proyectos de Construcción',
+        'Examen avanzado de gestión de proyectos de construcción', 'Gestión de Proyectos de Construcción 1'),
+       (28, 8, 3, 95, '2045-10-15 09:00:00', '2045-10-15 11:00:00', 'Ingeniería Estructural',
+        'Examen avanzado de ingeniería estructural', 'Ingeniería Estructural 1'),
+       (19, 3, 3, 75, '2046-01-20 13:30:00', '2046-01-20 14:45:00', 'Sostenibilidad en la Construcción',
+        'Examen avanzado de sostenibilidad en la construcción', 'Sostenibilidad en la Construcción 1'),
+       (32, 6, 4, 102, '2046-04-25 11:45:00', '2046-04-25 13:15:00', 'Arquitectura Sustentable',
+        'Examen avanzado de arquitectura sustentable', 'Arquitectura Sustentable 1'),
+       (17, 2, 3, 70, '2046-07-30 08:00:00', '2046-07-30 09:30:00', 'Diseño de Interiores',
+        'Examen avanzado de diseño de interiores', 'Diseño de Interiores 1'),
+       (24, 7, 3, 85, '2046-10-05 12:15:00', '2046-10-05 13:00:00', 'Patrimonio Arquitectónico',
+        'Examen avanzado de patrimonio arquitectónico', 'Patrimonio Arquitectónico 1'),
+       (26, 4, 3, 100, '2047-01-10 10:30:00', '2047-01-10 12:00:00', 'Tecnología y Arquitectura',
+        'Examen avanzado de tecnología y arquitectura', 'Tecnología y Arquitectura 1');
+
+
+INSERT INTO presentacion_quizz(quizz_id, estudiante_id, calificacion)
+VALUES (1, 1, 85),
+       (2, 2, 72),
+       (3, 3, 90),
+       (4, 4, 78),
+       (5, 5, 95),
+       (6, 6, 60),
+       (7, 7, 82),
+       (8, 8, 70),
+       (9, 9, 88),
+       (11, 11, 75),
+       (13, 13, 92),
+       (14, 14, 68),
+       (15, 15, 89),
+       (17, 17, 80),
+       (19, 19, 73),
+       (21, 21, 82),
+       (23, 23, 77),
+       (24, 24, 90),
+       (25, 25, 69),
+       (26, 26, 85),
+       (27, 27, 72),
+       (29, 29, 94),
+       (30, 30, 68),
+       (31, 31, 75),
+       (32, 32, 89),
+       (33, 33, 78),
+       (34, 34, 92),
+       (35, 35, 79),
+       (37, 37, 83),
+       (39, 39, 71),
+       (41, 41, 87),
+       (43, 43, 76),
+       (45, 45, 91),
+       (47, 47, 70),
+       (49, 49, 83),
+       (51, 51, 95),
+       (53, 53, 68),
+       (54, 54, 80),
+       (55, 55, 89),
+       (56, 56, 72),
+       (57, 57, 78),
+       (58, 58, 93),
+       (59, 59, 75),
+       (60, 60, 82),
+       (61, 61, 84),
+       (62, 62, 79),
+       (63, 63, 88),
+       (64, 64, 73),
+       (65, 65, 90),
+       (66, 66, 77);
+
+
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (1, 10, 'Grupo A');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (2, 12, 'Grupo B');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (3, 16, 'Grupo C');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (4, 18, 'Grupo D');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (5, 20, 'Grupo E');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (6, 22, 'Grupo F');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (7, 28, 'Grupo G');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (8, 36, 'Grupo H');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (9, 38, 'Grupo I');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (10, 40, 'Grupo J');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (11, 42, 'Grupo K');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (12, 44, 'Grupo L');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (13, 46, 'Grupo M');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (14, 48, 'Grupo N');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (15, 50, 'Grupo O');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (16, 52, 'Grupo P');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (17, 10, 'Grupo Q');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (18, 12, 'Grupo R');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (19, 16, 'Grupo S');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (20, 18, 'Grupo T');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (21, 20, 'Grupo U');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (22, 22, 'Grupo V');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (23, 28, 'Grupo W');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (24, 36, 'Grupo X');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (25, 38, 'Grupo Y');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (26, 40, 'Grupo Z');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (27, 42, 'Grupo AA');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (28, 44, 'Grupo BB');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (29, 46, 'Grupo CC');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (30, 48, 'Grupo DD');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (31, 50, 'Grupo EE');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (32, 52, 'Grupo FF');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (33, 10, 'Grupo GG');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (34, 12, 'Grupo HH');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (35, 16, 'Grupo II');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (36, 18, 'Grupo JJ');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (37, 20, 'Grupo KK');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (38, 22, 'Grupo LL');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (39, 28, 'Grupo MM');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (40, 36, 'Grupo NN');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (41, 38, 'Grupo OO');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (42, 40, 'Grupo PP');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (43, 42, 'Grupo QQ');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (44, 44, 'Grupo RR');
+INSERT INTO grupo(curso_id, docente_id, nombre)
+VALUES (45, 46, 'Grupo SS');
 
 
 
+INSERT INTO grupo_estudiantes(estudiantes_id, grupos_id)
+VALUES (1, 1),
+       (2, 1),
+       (3, 2),
+       (4, 2),
+       (5, 3),
+       (6, 3),
+       (7, 4),
+       (8, 4),
+       (9, 5),
+       (11, 6),
+       (13, 7),
+       (14, 7),
+       (15, 8),
+       (17, 9),
+       (19, 15),
+       (21, 11),
+       (23, 21),
+       (24, 13),
+       (25, 13),
+       (26, 14),
+       (27, 14),
+       (29, 15),
+       (30, 21),
+       (31, 17),
+       (32, 17),
+       (33, 21),
+       (34, 21),
+       (35, 19),
+       (37, 19),
+       (39, 21),
+       (41, 19),
+       (43, 23),
+       (45, 24);
 
-
-
-
+INSERT INTO grupo_bloques(grupos_id, bloques_id)
+VALUES
+    (7, 3),
+    (9, 2),
+    (11, 1),
+    (13, 3),
+    (15, 2),
+    (17, 1),
+    (19, 3),
+    (21, 2),
+    (23, 1),
+    (25, 3),
+    (27, 2),
+    (29, 1),
+    (31, 3),
+    (33, 2),
+    (35, 1),
+    (37, 3),
+    (39, 2),
+    (41, 1),
+    (43, 3),
+    (45, 2),
+    (27, 1),
+    (19, 3),
+    (11, 2),
+    (23, 1),
+    (15, 3),
+    (27, 2),
+    (19, 1),
+    (21, 3),
+    (33, 2),
+    (25, 1);
