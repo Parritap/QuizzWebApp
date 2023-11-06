@@ -715,25 +715,24 @@ VALUES
        (true, 52, 60, '¿Cuál es la obra de Sófocles?'),
        (true, 52, 60, '¿Cuál es la obra de Esquilo?');
 
-INSERT INTO seleccion_multiple()
+INSERT INTO seleccion_multiple(cantidad_respuestas, id)
 VALUES
-    (),
-    (),
-    (),
-    (),
-    (),
-    (),
-    (),
-    (),
-    (),
-    (),
-    (),
-    (),
-    ();
+    (1, 1),
+    (1, 2),
+    (1, 3),
+    (1, 4),
+    (1, 5),
+    (1, 6),
+    (1, 7),
+    (1, 8),
+    (1, 9),
+    (1, 10),
+    (1, 11),
+    (1, 12);
 
 
 
-INSERT INTO repuesta(pregSeleccionMultiple, contenido, esCorrecta)
+INSERT INTO respuesta(preg_seleccion_multiple_id, contenido, es_correcta)
     VALUES
            (1, '5', FALSE),
            (1, '4', TRUE),

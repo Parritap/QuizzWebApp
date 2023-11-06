@@ -20,5 +20,6 @@ public class SeleccionMultiple extends Pregunta implements Serializable {
     @OneToMany (mappedBy = "pregSeleccionMultiple")
     private List<Respuesta> respuestas;
 
-    private String atr;
+    private Integer cantidadRespuestas;
+
 }
