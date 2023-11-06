@@ -1,6 +1,5 @@
 package co.uniquindio.edu.quizzwebapp.model.entities.preguntas;
 
-import co.uniquindio.edu.quizzwebapp.model.entities.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -18,6 +17,8 @@ import java.util.List;
 @SuperBuilder
 public class SeleccionMultiple extends Pregunta implements Serializable {
 
-    @OneToMany (mappedBy = "pregSelecMultiple")
+    @OneToMany (mappedBy = "pregSeleccionMultiple")
     private List<Respuesta> respuestas;
+
+    private String atr;
 }

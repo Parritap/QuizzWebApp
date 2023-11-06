@@ -16,5 +16,5 @@ import java.util.List;
 @SuperBuilder
 public class PreguntaParejas  extends Pregunta implements Serializable {
 
-    private List<SeleccionMultiple> listaSelecMultiple;
+    private List<SeleccionMultiple> listaSelectMultiple;
 }

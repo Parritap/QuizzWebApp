@@ -24,10 +24,8 @@ public class Banco  implements Serializable {
     //Como no hay una relación bidireccional de ownership,
     //entonces no hay necesidad de un mappedBy en la entidad inversa.
     @ManyToOne
-    @JoinColumn (name = "id_docente")
     private Docente docente;
 
-    //TODO
     @ManyToOne
     @JoinColumn (name = "id_tema")
     private Tema tema;

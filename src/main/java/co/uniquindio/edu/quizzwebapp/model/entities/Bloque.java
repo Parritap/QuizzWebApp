@@ -14,14 +14,15 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode (onlyExplicitlyIncluded = true)
 @NoArgsConstructor
-public class Clase implements Serializable {
+public class Bloque implements Serializable {
 
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalTime horaInicio;
     private LocalTime horaFin;
     private char dia;
-    @ManyToMany (mappedBy = "clases")
+    @ManyToMany (mappedBy = "bloques")
     private List<Grupo> grupos;
 
 }

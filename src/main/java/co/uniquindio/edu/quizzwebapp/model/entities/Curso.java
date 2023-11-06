@@ -17,13 +17,14 @@ public class Curso implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    @Column (name = "id_curso")
     private Integer id;
 
-    @UniqueElements
     private String nombre;
-    @Column (name = "syllabus" , columnDefinition = "BLOB")
-    private byte[] syllabus;
+    @Column (columnDefinition = "varchar (5000)")
+    private String syllabus;
+
+    @ManyToMany
+    private List<Tema> temas;
 
     @OneToMany (mappedBy = "curso")
     private List<Grupo> grupos;

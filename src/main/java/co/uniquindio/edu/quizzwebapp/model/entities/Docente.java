@@ -1,5 +1,6 @@
 package co.uniquindio.edu.quizzwebapp.model.entities;
 
+import co.uniquindio.edu.quizzwebapp.model.entities.preguntas.Pregunta;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -16,11 +17,16 @@ import java.util.List;
 @ToString()
 public class Docente extends Usuario implements Serializable {
 
-    private String nombre;
+
     @ToString.Exclude
     @OneToMany (mappedBy = "docente")
     private List<Grupo> grupos;
+
     @ToString.Exclude
     @OneToMany
     private List <Banco> bancos;
+
+    @ToString.Exclude
+    @OneToMany
+    private List <Pregunta> preguntas;
 }

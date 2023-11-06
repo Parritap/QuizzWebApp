@@ -4,10 +4,10 @@ package co.uniquindio.edu.quizzwebapp.model.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.validator.constraints.UniqueElements;
-
 import java.io.Serializable;
 
 @Entity
@@ -15,7 +15,8 @@ import java.io.Serializable;
 @SuperBuilder
 @Inheritance (strategy = InheritanceType.JOINED)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-
+@Getter
+@Setter
 public abstract class Usuario implements Serializable {
 
     @Id
@@ -31,4 +32,6 @@ public abstract class Usuario implements Serializable {
     private String password;
 
     private boolean esEstudiante;
+
+    private String nombre;
 }

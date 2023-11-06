@@ -7,9 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.validator.constraints.Normalized;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -21,7 +21,6 @@ public class Tema implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "id_tema")
     @EqualsAndHashCode.Include
     private Integer id;
 
@@ -29,8 +28,11 @@ public class Tema implements Serializable {
     @Column (columnDefinition = "varchar (500)")
     private String descripcion;
 
-    @ManyToOne
-    @JoinColumn (name = "id_curso")
-    private Curso curso;
+    @NotNull
+    @Column (columnDefinition = "varchar (500)")
+    private String nombre;
+
+    @ManyToMany
+    private List<Curso> curso;
 
 }
