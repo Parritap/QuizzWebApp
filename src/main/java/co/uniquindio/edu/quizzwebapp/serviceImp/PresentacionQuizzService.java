@@ -20,4 +20,6 @@ public class PresentacionQuizzService implements PresentacionQuizzServiceI {
         return presentacionQuizzRepository.findAll();
     }
 
+
+
 }

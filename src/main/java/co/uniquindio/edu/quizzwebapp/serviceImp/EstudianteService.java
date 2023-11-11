@@ -27,4 +27,8 @@ public class EstudianteService implements EstudianteServiceI {
         return estudianteRepository.findByCorreoAndPassword(correo, password);
     }
 
+    public Estudiante findById(Long id) {
+        return estudianteRepository.findById(id).orElse(null);
+    }
+
 }

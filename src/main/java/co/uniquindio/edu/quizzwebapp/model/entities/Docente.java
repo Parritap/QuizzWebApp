@@ -29,4 +29,8 @@ public class Docente extends Usuario implements Serializable {
     @ToString.Exclude
     @OneToMany
     private List <Pregunta> preguntas;
+
+    @ToString.Exclude
+    @OneToMany (mappedBy = "docente")
+    private List <Quizz> quizzs;
 }

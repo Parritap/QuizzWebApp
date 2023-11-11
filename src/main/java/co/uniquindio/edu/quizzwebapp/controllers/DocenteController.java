@@ -1,7 +1,7 @@
 package co.uniquindio.edu.quizzwebapp.controllers;
 
+import co.uniquindio.edu.quizzwebapp.dto.PromedioQuizzDTO;
 import co.uniquindio.edu.quizzwebapp.dto.ResultadosQuizDTO;
-import co.uniquindio.edu.quizzwebapp.model.entities.Quizz;
 import co.uniquindio.edu.quizzwebapp.serviceImp.AdministradorService;
 import co.uniquindio.edu.quizzwebapp.serviceImp.DocenteService;
 import co.uniquindio.edu.quizzwebapp.serviceImp.EstudianteService;
@@ -55,17 +55,50 @@ public class DocenteController {
      * @return List<PromedioQuizzDTO> que contiene el promedio de los quizz de un profesor
      */
 
-    @GetMapping("/promedioQuizz")
+    @GetMapping("/promedioQuizz/{idDocente}")
 
-    public List<ResultadosQuizDTO> promedioQuizz(@PathVariable Integer idDocente) {
+    public List<PromedioQuizzDTO> promedioQuizz(@PathVariable Long idDocente) {
 
-        ArrayList<ResultadosQuizDTO> resultadosQuizDTOS = new ArrayList<>();
-        ArrayList<Quizz> listQuizzAux = new ArrayList<>();
-        presentacionQuizzService.findAll().forEach(presentacionQuizz -> {
-            presentacionQuizz.getId().getQuizz()
+        ArrayList<PromedioQuizzDTO> resultadosQuizDTOS = new ArrayList<>();
+
+
+
+        docenteService.findById(idDocente).getQuizzs().forEach(quizz -> {
+
+            PromedioQuizzDTO resultadosQuizDTO = new PromedioQuizzDTO(
+                    quizz.getNombre(),
+                    obtenerPromedioQuizz(quizz.getId())
+            );
+
+            resultadosQuizDTOS.add(resultadosQuizDTO);
 
         });
         return resultadosQuizDTOS;
+    }
+
+
+    /**
+     * Metodo que recibe el id de un quizz y retorna el promedio de las calificaciones
+     * @param id id del quizz que se desea obtener el promedio
+     * @return double que contiene el promedio de las calificaciones de un quizz
+     */
+    private double obtenerPromedioQuizz(Integer id) {
+
+        double suma = 0;
+        double cantidad = 0;
+
+        for (int i = 0; i < presentacionQuizzService.findAll().size(); i++) {
+
+            if (Objects.equals(presentacionQuizzService.findAll().get(i).getId().getQuizz().getId(), id)) {
+
+                suma += presentacionQuizzService.findAll().get(i).getCalificacion();
+                cantidad++;
+            }
+        }
+
+        if(cantidad != 0) return suma / cantidad;
+
+        return 0;
     }
 
 

@@ -22,12 +22,8 @@ public class PresentacionQuizz  implements Serializable {
     @EqualsAndHashCode.Include
     private PresentacionQuizzID id;
 
-
     @Max(100)
     private int calificacion;
-
-
-
 
 
 

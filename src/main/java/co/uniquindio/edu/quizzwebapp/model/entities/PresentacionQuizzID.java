@@ -10,8 +10,6 @@ import java.io.Serializable;
 @Embeddable
 @Getter
 @Setter
-
-
 public class PresentacionQuizzID implements Serializable {
 
     @OneToOne

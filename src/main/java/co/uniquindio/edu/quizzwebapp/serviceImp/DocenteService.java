@@ -27,10 +27,7 @@ public class DocenteService implements DocenteServiceI {
         return docenteRepository.findByCorreoAndPassword(correo, password);
     }
 
-
-    public List<String> findAllNames() {
-        ArrayList<String> nombres = new ArrayList<>();
-        docenteRepository.findAll().forEach(docente -> nombres.add(docente.getNombre()));
-        return nombres;
+    public Docente findById(Long id) {
+        return docenteRepository.findById(id).orElse(null);
     }
 }

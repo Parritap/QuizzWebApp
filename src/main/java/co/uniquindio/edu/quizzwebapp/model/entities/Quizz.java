@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -38,8 +39,11 @@ public class Quizz {
     @NotNull
     private LocalDateTime fechaYHoraFinalizacion;
     @Max(100)
-    @Column(columnDefinition = "INT DEFAULT 3")
-    private int porcentajeCurso;
+    @Column(precision=3,scale=2)
+    private BigDecimal porcentajeCurso;
     private int porcentajeUmbral;
+
+    @ManyToOne
+    private Docente docente;
 
 }
