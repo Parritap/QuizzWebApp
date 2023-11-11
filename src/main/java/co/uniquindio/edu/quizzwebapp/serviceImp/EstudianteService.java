@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,8 +17,14 @@ public class EstudianteService implements EstudianteServiceI {
 
     private final EstudianteRepository estudianteRepository;
 
-    public List<Estudiante> findAll() {
-        return estudianteRepository.findAll();
+    public List<String> findAllNames() {
+        List<String> nombres = new ArrayList<>();
+        estudianteRepository.findAll().forEach(estudiante -> nombres.add(estudiante.getNombre()));
+        return nombres;
+    }
+
+    public Estudiante findByCorreoAndPassword(String correo, String password) {
+        return estudianteRepository.findByCorreoAndPassword(correo, password);
     }
 
 }

@@ -20,8 +20,8 @@ import java.time.LocalDateTime;
 public class Quizz {
 
     @Id
-    @Column (name = "id")
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
@@ -29,22 +29,17 @@ public class Quizz {
     @NotNull
     private String descripcion;
     private int tiempo;
-    @NotNull
-    private byte cantidadPreguntas;
-
+    private int cantidadPreguntas;
     @ManyToOne
-    @JoinColumn (name = "id_tema")
     private Tema tema;
     @NotNull
     private String categoria;
     private LocalDateTime fechaYhora_Inicio;
     @NotNull
     private LocalDateTime fechaYHoraFinalizacion;
-
     @Max(100)
+    @Column(columnDefinition = "INT DEFAULT 3")
     private int porcentajeCurso;
-
-    //TODO No me acuerdo esto para qué es, leer los requerimientos del sistema de información.
-    private int porcenajeUmbral;
+    private int porcentajeUmbral;
 
 }

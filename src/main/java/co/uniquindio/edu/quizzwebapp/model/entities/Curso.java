@@ -2,7 +2,6 @@ package co.uniquindio.edu.quizzwebapp.model.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import java.io.Serializable;
 import java.util.List;
