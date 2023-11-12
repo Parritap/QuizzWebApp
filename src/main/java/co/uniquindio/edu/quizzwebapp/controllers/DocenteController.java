@@ -26,24 +26,6 @@ public class DocenteController {
 
 
     //METODO DE ANUBIS
-    @GetMapping("/presentacionQuizz")
-    public List<ResultadosQuizDTO> findAll() {
-
-        ArrayList<ResultadosQuizDTO> resultadosQuizDTOS = new ArrayList<>();
-
-        presentacionQuizzService.findAll().forEach(presentacionQuizz -> {
-
-            ResultadosQuizDTO resultadosQuizDTO = new ResultadosQuizDTO(
-                    presentacionQuizz.getId().getEstudiante().getNombre(),
-                    presentacionQuizz.getCalificacion()
-            );
-
-            resultadosQuizDTOS.add(resultadosQuizDTO);
-
-        });
-
-        return resultadosQuizDTOS;
-    }
 
     //Metodo de Alejandro
 
