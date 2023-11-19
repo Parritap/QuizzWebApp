@@ -27,7 +27,7 @@ public class DocenteService implements DocenteServiceI {
         return docenteRepository.findByCorreoAndPassword(correo, password);
     }
 
-    public Docente findById(Long id) {
+    public Docente findById(Integer id) {
         return docenteRepository.findById(id).orElse(null);
     }
 }

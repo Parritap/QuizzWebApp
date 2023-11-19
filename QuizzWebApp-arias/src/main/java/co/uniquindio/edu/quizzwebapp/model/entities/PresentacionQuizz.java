@@ -17,14 +17,21 @@ import java.io.Serializable;
 @SuperBuilder
 @EqualsAndHashCode (onlyExplicitlyIncluded = true)
 public class PresentacionQuizz  implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @EmbeddedId
-    @EqualsAndHashCode.Include
-    private PresentacionQuizzID id;
+    @ManyToOne
+    @JoinColumn(name = "estudiante_id") 
+    private Estudiante estudiante;
+
+    @ManyToOne
+    @JoinColumn(name = "quizz_id") 
+    private Quizz quizz;
 
     @Max(100)
-    
-    private int calificacion;
+    private Integer calificacion;
 
 
 

@@ -1,10 +1,11 @@
 package co.uniquindio.edu.quizzwebapp.controllers;
 
+import co.uniquindio.edu.quizzwebapp.dto.NotaDTO;
+import co.uniquindio.edu.quizzwebapp.dto.NotaEstudianteDTO;
 import co.uniquindio.edu.quizzwebapp.dto.PonderadoDTO;
 import co.uniquindio.edu.quizzwebapp.dto.TemaDTO;
 import co.uniquindio.edu.quizzwebapp.model.entities.Estudiante;
 import co.uniquindio.edu.quizzwebapp.model.entities.PresentacionQuizz;
-import co.uniquindio.edu.quizzwebapp.model.entities.PresentacionQuizzID;
 import co.uniquindio.edu.quizzwebapp.model.entities.Quizz;
 import co.uniquindio.edu.quizzwebapp.serviceImp.AdministradorService;
 import co.uniquindio.edu.quizzwebapp.serviceImp.DocenteService;
@@ -36,7 +37,7 @@ public class EstudianteController {
      */
 
     @GetMapping("/temas/{idEstudiante}")
-    public List<TemaDTO> temas(@PathVariable Long idEstudiante) {
+    public List<TemaDTO> temas(@PathVariable Integer idEstudiante) {
 
         ArrayList<TemaDTO> temaDTOS = new ArrayList<>();
 
@@ -44,10 +45,8 @@ public class EstudianteController {
            grupo.getCurso().getTemas().forEach(tema -> {
 
             TemaDTO temaDTO = new TemaDTO(
-
                     tema.getNombre(),
                     tema.getDescripcion()
-
             );
 
             temaDTOS.add(temaDTO);
@@ -66,7 +65,7 @@ public class EstudianteController {
      */
 
     @GetMapping("/ponderado/{idEstudiante}")
-    public List<PonderadoDTO> ponderado(@PathVariable Long idEstudiante) {
+    public List<PonderadoDTO> ponderado(@PathVariable Integer idEstudiante) {
 
         ArrayList<PonderadoDTO> ponderadoDTOS = new ArrayList<>();
 
@@ -74,9 +73,9 @@ public class EstudianteController {
 
         presentacionQuizzService.findAll().forEach(presentacionQuizz  -> {
 
-            if (presentacionQuizz.getId().getEstudiante().equals(estudiante)) { //Si el estudiante de la presentacion es el mismo que el que se busca
+            if (presentacionQuizz.getEstudiante().equals(estudiante)) { //Si el estudiante de la presentacion es el mismo que el que se busca
 
-                Quizz quizz = presentacionQuizz.getId().getQuizz(); //Se obtiene el quizz de la presentacion
+                Quizz quizz = presentacionQuizz.getQuizz(); //Se obtiene el quizz de la presentacion
 
                 double porcentaje = quizz.getPorcentajeCurso().doubleValue() * presentacionQuizz.getCalificacion(); //Se calcula el ponderado
 
@@ -96,5 +95,23 @@ public class EstudianteController {
 
         return ponderadoDTOS;
     }
+
+    @GetMapping("/notas/{idEstudiante}")
+    public ArrayList<NotaEstudianteDTO> notasQuizz(@PathVariable Integer idEstudiante) {
+
+        ArrayList<NotaEstudianteDTO> notasQuizzDTOS = new ArrayList<>();
+
+        presentacionQuizzService.findByEstudiante(idEstudiante).forEach(presentacionQuizz -> {
+            
+                NotaEstudianteDTO notaDTO = new NotaEstudianteDTO(
+                    presentacionQuizz.getId(),
+                    presentacionQuizz.getCalificacion());
+
+            notasQuizzDTOS.add(notaDTO);
+            });
+        
+        return notasQuizzDTOS;
+    }
+
 
 }

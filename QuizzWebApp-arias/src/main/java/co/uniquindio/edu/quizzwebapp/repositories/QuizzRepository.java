@@ -9,4 +9,5 @@ public interface QuizzRepository extends JpaRepository<Quizz, Integer> {
 
 
         Quizz findByDocenteId(Integer docenteId);
+
 }

@@ -1,15 +1,14 @@
 package co.uniquindio.edu.quizzwebapp.controllers;
 
+import co.uniquindio.edu.quizzwebapp.dto.EstadoQuizzDTO;
 import co.uniquindio.edu.quizzwebapp.dto.NotaDTO;
 import co.uniquindio.edu.quizzwebapp.dto.PromedioQuizzDTO;
-import co.uniquindio.edu.quizzwebapp.dto.ResultadosQuizDTO;
 import co.uniquindio.edu.quizzwebapp.model.entities.PresentacionQuizz;
-import co.uniquindio.edu.quizzwebapp.model.entities.PresentacionQuizzID;
-import co.uniquindio.edu.quizzwebapp.repositories.QuizzRepository;
+import co.uniquindio.edu.quizzwebapp.model.entities.Quizz;
 import co.uniquindio.edu.quizzwebapp.serviceImp.AdministradorService;
 import co.uniquindio.edu.quizzwebapp.serviceImp.DocenteService;
 import co.uniquindio.edu.quizzwebapp.serviceImp.EstudianteService;
-import co.uniquindio.edu.quizzwebapp.serviceImp.PresentacionQuizzIDService;
+
 import co.uniquindio.edu.quizzwebapp.serviceImp.PresentacionQuizzService;
 import co.uniquindio.edu.quizzwebapp.serviceImp.QuizzService;
 import lombok.AllArgsConstructor;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/docente")
@@ -30,7 +30,7 @@ public class DocenteController {
     private final AdministradorService administradorService;
     private final PresentacionQuizzService presentacionQuizzService;
     private final QuizzService quizzService;
-    private final PresentacionQuizzIDService presentacionQuizzIDService;
+
     
 
 
@@ -48,7 +48,7 @@ public class DocenteController {
 
     @GetMapping("/promedioQuizz/{idDocente}")
 
-    public List<PromedioQuizzDTO> promedioQuizz(@PathVariable Long idDocente) {
+    public List<PromedioQuizzDTO> promedioQuizz(@PathVariable Integer idDocente) {
 
         ArrayList<PromedioQuizzDTO> resultadosQuizDTOS = new ArrayList<>();
 
@@ -78,7 +78,7 @@ public class DocenteController {
 
         for (int i = 0; i < presentacionQuizzService.findAll().size(); i++) {
 
-            if (Objects.equals(presentacionQuizzService.findAll().get(i).getId().getQuizz().getId(), id)) {
+            if (Objects.equals(presentacionQuizzService.findAll().get(i).getQuizz().getId(), id)) {
 
                 suma += presentacionQuizzService.findAll().get(i).getCalificacion();
                 cantidad++;
@@ -92,28 +92,46 @@ public class DocenteController {
 
 
     @GetMapping("/notas/{idDocente}")
-    public ArrayList<NotaDTO> notasQuizz(@PathVariable Long idDocente) {
+    public ArrayList<ArrayList<NotaDTO>> notasQuizz(@PathVariable Integer idDocente) {
 
-        ArrayList<NotaDTO> notasQuizzDTOS = new ArrayList<>();
+        ArrayList<ArrayList<NotaDTO>> notasQuizzDTOS = new ArrayList<>();
 
         docenteService.findById(idDocente).getQuizzs().forEach(quizz -> {
             
             List<PresentacionQuizz> listPresentaciones = this.presentacionQuizzService.findByQuizz(quizz.getId());
 
+            ArrayList<NotaDTO> notasQuizz = new ArrayList<>();
+
             listPresentaciones.forEach( presentacion -> {
                 NotaDTO notaDTO = new NotaDTO(
-                    presentacion.getId().getEstudiante().getId(),
+                    presentacion.getEstudiante().getId(),
                     quizz.getId(),
-                    presentacion.getCalificacion()
+                    presentacion.getCalificacion(),
+                    quizz.getNombre()
             );
-            notasQuizzDTOS.add(notaDTO);
+            notasQuizz.add(notaDTO);
             });
-            
-
-            
-
+            notasQuizzDTOS.add(notasQuizz);
         });
         return notasQuizzDTOS;
+    }    
+
+
+    @GetMapping("/quizzes/{idDocente}")
+    public ArrayList<EstadoQuizzDTO> quizzesDocente(@PathVariable Integer idDocente) {
+
+        ArrayList<EstadoQuizzDTO> listaEstadoQuizzDTO = new ArrayList<>();
+
+        List<PresentacionQuizz> presentaciones = presentacionQuizzService.findByDocente(idDocente);
+
+        docenteService.findById(idDocente).getQuizzs().forEach(quizz -> {
+            
+            Integer cantidadPresentaciones = presentaciones.stream().filter(p -> p.getQuizz().getId() == quizz.getId()).collect(Collectors.toList()).size();
+            EstadoQuizzDTO estadoQuizzDTO = new EstadoQuizzDTO(quizz.getFechaYHoraFinalizacion(), quizz.getNombre(), cantidadPresentaciones);
+            listaEstadoQuizzDTO.add(estadoQuizzDTO);
+        });
+
+        return listaEstadoQuizzDTO;
     }
 
 }

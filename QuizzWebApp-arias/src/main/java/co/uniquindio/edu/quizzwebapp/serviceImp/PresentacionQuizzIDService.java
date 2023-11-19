@@ -1,31 +1,30 @@
-package co.uniquindio.edu.quizzwebapp.serviceImp;
+// package co.uniquindio.edu.quizzwebapp.serviceImp;
 
-import co.uniquindio.edu.quizzwebapp.model.entities.PresentacionQuizz;
-import co.uniquindio.edu.quizzwebapp.model.entities.PresentacionQuizzID;
-import co.uniquindio.edu.quizzwebapp.repositories.PresentacionQuizzIDRepository;
-import co.uniquindio.edu.quizzwebapp.repositories.PresentacionQuizzRepository;
-import co.uniquindio.edu.quizzwebapp.service.PresentacionQuizzIDI;
-import co.uniquindio.edu.quizzwebapp.service.PresentacionQuizzServiceI;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
+// import co.uniquindio.edu.quizzwebapp.model.entities.PresentacionQuizz;
 
-import java.util.List;
+// import co.uniquindio.edu.quizzwebapp.repositories.PresentacionQuizzRepository;
+// import co.uniquindio.edu.quizzwebapp.service.PresentacionQuizzIDI;
+// import co.uniquindio.edu.quizzwebapp.service.PresentacionQuizzServiceI;
+// import lombok.AllArgsConstructor;
+// import org.springframework.stereotype.Service;
 
-@Service
-@AllArgsConstructor
-public class PresentacionQuizzIDService implements PresentacionQuizzIDI {
+// import java.util.List;
 
-
-    private final PresentacionQuizzIDRepository presentacionQuizzIDRepository;
+// @Service
+// @AllArgsConstructor
+// public class PresentacionQuizzIDService implements PresentacionQuizzIDI {
 
 
-    public List<PresentacionQuizzID> findAll() {
-        return presentacionQuizzIDRepository.findAll();
-    }
-
-    public List<PresentacionQuizzID> findByQuizz(Integer id) {
-        return presentacionQuizzIDRepository.findByQuizz(id);
-    }
+//     private final PresentacionQuizzIDRepository presentacionQuizzIDRepository;
 
 
-}
+//     public List<PresentacionQuizz> findAll() {
+//         return presentacionQuizzIDRepository.findAll();
+//     }
+
+//     public List<PresentacionQuizz> findByQuizz(Integer id) {
+//         return presentacionQuizzIDRepository.findByQuizz(id);
+//     }
+
+
+// }

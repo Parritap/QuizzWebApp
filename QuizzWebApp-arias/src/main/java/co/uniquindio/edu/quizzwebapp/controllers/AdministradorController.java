@@ -34,7 +34,7 @@ public class AdministradorController {
         presentacionQuizzService.findAll().forEach(presentacionQuizz -> {
 
             ResultadosQuizDTO resultadosQuizDTO = new ResultadosQuizDTO(
-                    presentacionQuizz.getId().getEstudiante().getNombre(),
+                    presentacionQuizz.getEstudiante().getNombre(),
                     presentacionQuizz.getCalificacion()
             );
 
